@@ -1,4 +1,10 @@
-*.txt
+#config data
+config.txt
+
+# pipenv 
+Folderenv/
+
+# keys
 *.pub
 *.key
 new_key
