@@ -1,8 +1,10 @@
 #config data
 config.txt
+notes.txt
 
 # pipenv 
-Folderenv/
+/env/
+/bkp/
 
 # keys
 *.pub

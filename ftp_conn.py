@@ -22,28 +22,34 @@ ftp_host = config.get('login', 'ftp_host').strip()
 ftp_user = config.get('login', 'ftp_user')
 ftp_pass  = config.get('login', 'ftp_pass')
 
-print(ftp_host, ftp_user, ftp_pass)
-print(type(ftp_host), type(ftp_pass), type(ftp_user))
+ftp_directory = '/domains/'
+
+#print(type(ftp_host), type(ftp_pass), type(ftp_user))
 
 
-#ftp = ftplib.FTP('190.7.19.51')
-ftp_conn = FTP(ftp_host)
+#ftp = ftplib.FTP('')
+def ftp_conn_main():
+    ftp_conn = FTP(ftp_host)
 
-# # # LOGS
-print(f"Connected to FTP server ", ftp_host)
+    # # # LOGS
+    print(f"Connected to FTP server ", ftp_host)
 
-ftp_conn.getwelcome()
+    ftp_conn.getwelcome()
 
-ftp_conn.login(user = ftp_user, passwd = ftp_pass, acct = '')
-# # # LOG print(f"Login successfull with username = ", ftp_user)
-# # # '230 Login successful.'
+    ftp_conn.login(user = ftp_user, passwd = ftp_pass, acct = '')
 
-ftp_conn.cwd('/')
+    return ftp_conn
+    # # # LOG print(f"Login successfull with username = ", ftp_user)
+    # # # '230 Login successful.'
 
-# # #'250 Directory successfully changed.'
+    #print(direc_content)
+    # # type(direc_content)
+    #ftp_conn.close()
 
-direc_content = ftp_conn.retrlines('LIST')           # list directory contents
+# ftp = ftp_conn_main()
+# # changing directory
+# ftp.cwd('user_backups')  
+# ftp.retrlines('LIST')
 
-print(direc_content)
-# # type(direc_content)
-ftp_conn.close()
+
+
